@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+	<!-- inside the head, attach all the exteral links-->
+	<!-- we are linking it to css, javascript & boststrap 4 -->
+	<!-- why? because we rae using a lot of bootstrap, styling codes -->
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+<!-- for a responsive webside - add thí code -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!--   -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style>
+      /* Make the image fully responsive */
+      .carousel-inner img {
+      width: 100%;
+      height: 100%;
+      }
+     </style>
+
+
+	<!-- css code for video-->
+	<style>
+		/* Style the video: 100% width and height to cover the entire window */
+#myVideo {
+  position:  absolute;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+   width: 1300px;
+  	height: 550px;
+
+
+}
+
+/* Add some content at the bottom of the video/page */
+.content {
+  position: absolute;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  color: #f1f1f1;
+  width: 100%;
+  padding: 20px;
+  text-align: center;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.column {
+  float: left;
+  width: 33.3%;
+  margin-bottom: 16px;
+  padding: 0 8px;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin: 15px;
+  padding: 16px;
+}
+
+.about-section {
+  padding: 50px;
+  text-align: center;
+  background-color: #9EC4FF;
+  color: white;
+}
+
+.container {
+  padding: 0 16px;
+  margin: 20px;
+}
+
+.container::after, .row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.title {
+  color: grey;
+}
+
+.button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+}
+
+.button:hover {
+  background-color: #555;
+}
+
+@media screen and (max-width: 650px) {
+  .column {
+    width: 100%;
+    display: block;
+  }
+}
+
+	</style>
+
+	<!-- ssc code for video end-->
+
+<!-- javascript for video-->
+
+<script>
+
+var video = document.getElementById("myVideo");
+
+var btn = document.getElementById("myBtn");
+
+</script>
+
+<!-- javascript for video end -->
+
+
+<!-- css code for Garllery-->
+
+<style>
+	
+	* {
+  box-sizing: border-box;
+}
+
+/* Position the image container (needed to position the left and right arrows) */
+.container {
+  position: relative;
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+}
+
+/* Add a pointer when hovering over the thumbnail images */
+.cursor {
+  cursor: pointer;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 40%;
+  width: auto;
+  padding: 16px;
+  margin-top: -50px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* Container for image text */
+.caption-container {
+  text-align: center;
+  background-color: #222;
+  padding: 2px 16px;
+  color: white;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Six columns side by side */
+.column {
+  float: left;
+  width: 16.66%;
+}
+
+/* Add a transparency effect for thumnbail images */
+.demo {
+  opacity: 0.6;
+}
+
+.active,
+.demo:hover {
+  opacity: 1;
+}
+</style>
+
+
+<!-- css for gallery end-->
+
+<!-- javar script for gallery -->
+
+<script>
+var slideIndex = 1;
+showSlides(slideIndex);
+
+// Next/previous controls
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+// Thumbnail image controls
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("demo");
+  var captionText = document.getElementById("caption");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+  captionText.innerHTML = dots[slideIndex-1].alt;
+}
+
+</script>
+
+<!-- javar script for gallery end-->
+
+<!-- css for Blog-->
+
+<style>
+	body {
+  font-family: Arial;
+  padding: 20px;
+  background: #f1f1f1;
+}
+
+/* Header/Blog Title */
+.header {
+  padding: 30px;
+  font-size: 40px;
+  text-align: center;
+  background: white;
+}
+
+/* Create two unequal columns that floats next to each other */
+/* Left column */
+.leftcolumn {
+  float: left;
+  width: 75%;
+}
+
+/* Right column */
+.rightcolumn {
+  float: left;
+  width: 25%;
+  padding-left: 20px;
+}
+
+
+/* Add a card effect for articles */
+.card {
+  background-color: white;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Footer */
+.footer {
+  padding: 20px;
+  text-align: center;
+  background: #ddd;
+  margin-top: 20px;
+}
+
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 800px) {
+  .leftcolumn, .rightcolumn {
+    width: 100%;
+    padding: 0;
+  }
+}
+
+
+</style>
+
+
+
+<!-- NAV BAR will be inside heading-->
+
+<!--NAV BAR-->
+
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+  <!-- Brand -->
+  <a class="navbar-brand" href="index.html">Kyara</a>
+
+  <!-- Links -->
+  <ul class="navbar-nav ml-auto">
+    <li class="nav-item">
+      <a class="nav-link" href="index.html">Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="Aboutus.html">About us</a>
+    </li>
+
+<li class="nav-item">
+      <a class="nav-link" href="Gallery.html">Gallery</a>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link" href="Blog.html">Blog</a>
+    </li>
+
+<li class="nav-item">
+      <a class="nav-link" href="Contact.html">Contact</a>
+    </li>
+
+
+</nav>
+  
+
+  <!-- NAv BAR end -->
+	</head>
+<br>
+<br>
+<br>
+  <body style="background-color: #708090">
+    
+<!-- about us page-->
+
+<section>
+  <div class="about-section" style="background-color: #ADD8E6">
+    <h1>About Sky</h1>
+    <p>Sky: Children of the Light is an adventure indie game developed and published by Thatgamecompany. It was released on July 18, 2019, for iOS, with subsequent releases on April 7, 2020, for Android and a planned port to Nintendo Switch during the summer of 2020. </p>
+    <p>Sky is all about navigating the realms, using your flight to reach new locations. When you first join the game, you are directed to the Isle of Dawn to begin earning your wings in the form of a cape. There are 80 Winged Light, scattered throughout the realms, which take the form of a glowing yellow Children of Light. </p>
+  </div>
+
+<br>
+<br>
+<h1 style="text-align:center; color: #fffafa">Sky Team</h1>
+
+<!-- card 1 -->
+<div class="row ml-5">
+<div class="col-lg-4">  <!-- 12/3 = 4, because i need 3 stuffs to be displayed in one line-->
+
+  <!-- make each card to fit inside the gris-->
+ <div class="card" style="width: 400px">
+  <img class="card-img-top" src="image/9.jpg" class="img-fluid">
+      <div class="container-fluid">
+        <br>
+        <h2>Valley of Triumph</h2>
+        <p class="title">Racing time!!</p>
+        <p>Originally called Sunset, it was changed to Valley of Triumph, Valley, Mountains, and finally back to Valley of Triumph. </p>
+        <p>jane@example.com</p>
+        <p><button class="button" style="background-color: #ADD8E6">Contact</button></p>
+      </div>
+    </div>
+  </div>
+
+
+<!-- card 2 -->
+  <div class="col-lg-4">  <!-- 12/3 = 4, because i need 3 stuffs to be displayed in one line-->
+   <div class="card" style="width: 400px">
+    <img class="card-img-top" src="image/7.jpg" class="img-fluid">
+      <div class="container-fluid">
+        <br>
+        <h2>Golden Wasteland</h2>
+        <p class="title">Watch out!! The Krill is here!!!</p>
+        <p>Originally called Dusk, it was changed to Forsaken Desert, Shores of Manna, and then Golden Wasteland.</p>
+       
+        <p><button class="button" style="background-color: #ADD8E6">Contact</button></p>
+      </div>
+    </div>
+  </div>
+
+
+<!-- card 3 -->
+  <div class="col-lg-4">  <!-- 12/3 = 4, because i need 3 stuffs to be displayed in one line-->
+ <div class="card" style="width: 400px">
+  <img class="card-img-top" src="image/8.jpg" class="img-fluid">
+      <div class="container-fluid">
+        <br>
+        <h2>Eye of Eden</h2>
+        <p class="title">Time to reborn</p>
+        <p>You will lose Cape Wedges in Eye of Eden. This is part of the process. As you deposit Winged Light at each Statue, your Cape Power will decrease. </p>
+        
+        <p><button class="button" style="background-color: #ADD8E6">Contact</button></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+</section>
+
+
+    
+  </body>
+
+
+  
+
+<!-- Footer -->
+<style>
+.footer {
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: black;
+  color: white;
+  text-align: center;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+</style>
+
+<div class="footer">
+  <p>© 2020 Kyararinpupurin, All Rights Reserved.</p>
+  <!-- social media buttons inside my footer -->
+
+  <!-- css code for social media -->
+  <style>
+.fa {
+  padding: 15px;
+  font-size: 20px;
+  width: 60px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 5px;
+}
+
+.fa:hover {
+    opacity: 0.7;
+}
+
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+
+.fa-twitter {
+  background: #55ACEE;
+  color: white;
+}
+
+
+
+.fa-youtube {
+  background: #bb0000;
+  color: white;
+}
+
+.fa-instagram {
+  background: #125688;
+  color: white;
+}
+
+.fa-soundcloud {
+  background: #ff5500;
+  color: white;
+}
+
+
+
+
+</style>
+
+<!-- html code for social media -->
+<a href="https://www.facebook.com/phamthuy.linh.2199" class="fa fa-facebook"></a>
+<a href="https://twitter.com/Linh_neko" class="fa fa-twitter"></a>
+<a href="https://www.youtube.com/channel/UCPvnzOJzxh_uMenMMUBwBNA" class="fa fa-youtube"></a>
+<a href="https://www.instagram.com/kyararin_pu_pu_rin" class="fa fa-instagram"></a>
+<a href="https://soundcloud.com/kyararin-pu-purin" class="fa fa-soundcloud"></a>
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+</body>
+
+
+</html>
